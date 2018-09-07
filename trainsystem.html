@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8">
+<title>收支查看</title>
+
+<link rel="stylesheet" href="bootstrap3.3.7/css/bootstrap.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap3.3.7/js/bootstrap.min.js"></script>
+<link href="css/record.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body style="background-position:center; background-repeat:repeat-y">
+
+<div class="container">
+                      	<select id="isnormalState"  name="state1" onChange="getState2()">
+                        <option value="0">请选择</option>
+                        <option value="1">家人</option>
+                        <option value="2">朋友</option>
+                        <option value="3">其他</option>
+                        </select>
+                          
+                        <select id="ispublic111" name="state2" style="width:150px">
+                            <option value="-1">请选择</option>
+                        </select>
+                        
+                <script language="JavaScript" type="text/javascript">
+                           var state2=[
+                                   ['自己','父母','妻子','丈夫','儿女','兄弟姐妹','亲戚'],  // 0
+        ['同学','男女朋友','同事','熟人'],   // 1
+        ['其他'] 
+                           ];
+                        
+                           function getState2(){
+                             var sltProvince=document.getElementById("isnormalState");
+                             var sltCity=document.getElementById("ispublic111");     
+                             var provinceCity=state2[sltProvince.selectedIndex - 1];
+                             sltCity.length=1;
+                             for(var i=0;i<provinceCity.length;i++){
+                               sltCity[i+1]=new Option(provinceCity[i],provinceCity[i]);
+                             }
+                           }
+                  </script> 
+</div>
+
+    
+</body>
+</html>
